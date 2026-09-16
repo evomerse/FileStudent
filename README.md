@@ -71,25 +71,6 @@ bas) :
 Chaque traitement termine propose "Ouvrir le dossier" et "Ouvrir le
 fichier" pour retrouver le resultat immediatement.
 
-## Hors perimetre (assume)
-
-Deux categories de fonctions d'iLovePDF/iLoveIMG sont volontairement
-laissees de cote :
-
-- **Contradictoires avec le principe "vos documents ne quittent jamais
-  votre ordinateur"** : resume par IA et traduction demanderaient soit un
-  modele local de plusieurs Go, soit d'envoyer le contenu a un service en
-  ligne.
-- **Necessitent un editeur graphique dedie, pas juste un module de plus** :
-  edition de PDF (texte/formes/annotations), formulaires PDF, signature
-  electronique, editeur de photos avec stickers, createur de flux de
-  travail, numerisation, HTML vers PDF/image, PDF vers PDF/A, OCR
-  (dependance externe, Tesseract), suppression d'arriere-plan et flou de
-  visage (modeles d'IA a telecharger), generateur de memes, formats
-  d'image marginaux pour un usage etudiant (PSD, RAW, SVG, HEIC).
-
-L'upscaling par IA reelle (Real-ESRGAN) est en backlog, remplace ici par
-un upscaling algorithmique.
 
 ## Installation
 
