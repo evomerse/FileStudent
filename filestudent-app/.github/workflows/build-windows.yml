@@ -1,0 +1,28 @@
+name: Build Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dependances
+        run: pip install -e ".[build]"
+
+      - name: Construire FileStudent.exe
+        run: pyinstaller filestudent.spec --noconfirm
+
+      - name: Publier l'executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: FileStudent-windows
+          path: dist/FileStudent.exe
