@@ -22,6 +22,13 @@ lancement : c'est normal pour un executable non signe, cliquez sur
 Linux/macOS : voir [Construire l'executable](#construire-lexecutable)
 plus bas.
 
+## Structure du depot
+
+- `filestudent-app/` : le code source du logiciel (tout ce qui suit dans
+  ce document, sauf mention contraire, se trouve dans ce dossier).
+- `pitch/` : les supports de preparation de la soutenance (canevas de
+  pitch, diaporama), sans rapport avec le fonctionnement du logiciel.
+
 ## Modules
 
 Treize onglets de traitement, chacun avec sa zone de depot de fichiers et
@@ -86,9 +93,11 @@ un upscaling algorithmique.
 
 ## Installation
 
-Python 3.10 ou plus recent est requis.
+Python 3.10 ou plus recent est requis. Toutes les commandes qui suivent
+s'executent depuis `filestudent-app/` :
 
 ```bash
+cd filestudent-app
 python -m venv .venv
 source .venv/bin/activate      # Windows : .venv\Scripts\activate
 pip install -e ".[dev]"
@@ -119,9 +128,10 @@ pytest
 
 ## Construire l'executable
 
-Voir `build.bat` (Windows) ou `build.sh` (Linux/macOS). Le resultat est
-volumineux (environ 190 Mo) : la conversion PDF -> Word embarque des
-bibliotheques de traitement d'image (OpenCV, NumPy).
+Depuis `filestudent-app/`, voir `build.bat` (Windows) ou `build.sh`
+(Linux/macOS). Le resultat est volumineux (environ 190 Mo) : la
+conversion PDF -> Word embarque des bibliotheques de traitement d'image
+(OpenCV, NumPy).
 
 ## Menu contextuel dans l'explorateur Windows (ticket APP-23)
 
@@ -161,9 +171,9 @@ enregistre le chemin exact de l'executable a cet instant).
 
 ### Alternative en ligne de commande
 
-Les scripts `install-context-menu.ps1` et `uninstall-context-menu.ps1` a
-la racine du depot font exactement la meme chose que le bouton, utiles
-pour un deploiement scripte sur plusieurs machines :
+Les scripts `install-context-menu.ps1` et `uninstall-context-menu.ps1`
+dans `filestudent-app/` font exactement la meme chose que le bouton,
+utiles pour un deploiement scripte sur plusieurs machines :
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File install-context-menu.ps1

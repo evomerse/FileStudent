@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: filestudent-app
+
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
