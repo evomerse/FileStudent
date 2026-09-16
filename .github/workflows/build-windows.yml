@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+defaults:
+  run:
+    working-directory: filestudent-app
+
 jobs:
   build:
     runs-on: windows-latest
@@ -28,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: FileStudent-windows
-          path: dist/FileStudent.exe
+          path: filestudent-app/dist/FileStudent.exe
 
       - name: Publier une release telechargeable
         uses: softprops/action-gh-release@v2
@@ -41,4 +45,4 @@ jobs:
 
             Ce n'est pas une version stable numerotee : ce lien est remplace
             a chaque nouveau push sur main.
-          files: dist/FileStudent.exe
+          files: filestudent-app/dist/FileStudent.exe
