@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -21,8 +24,21 @@ jobs:
       - name: Construire FileStudent.exe
         run: pyinstaller filestudent.spec --noconfirm
 
-      - name: Publier l'executable
+      - name: Publier l'executable (artefact de build)
         uses: actions/upload-artifact@v4
         with:
           name: FileStudent-windows
           path: dist/FileStudent.exe
+
+      - name: Publier une release telechargeable
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: dernier-build
+          name: "Dernier build (execution #${{ github.run_number }})"
+          body: |
+            Executable Windows genere automatiquement a chaque push sur main
+            (commit ${{ github.sha }}).
+
+            Ce n'est pas une version stable numerotee : ce lien est remplace
+            a chaque nouveau push sur main.
+          files: dist/FileStudent.exe

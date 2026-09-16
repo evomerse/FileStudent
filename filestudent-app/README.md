@@ -1,11 +1,26 @@
 # FileStudent
 
 Boite a outils desktop pour etudiants, inspiree d'iLovePDF et iLoveIMG.
-Fonctionne en local, sous Linux et sous Windows, sans envoyer aucun fichier
-sur un serveur externe, sans compte et sans abonnement.
+Convertir, fusionner, compresser, ameliorer et proteger ses fichiers PDF et
+images, sans envoyer aucun fichier sur un serveur externe, sans compte et
+sans abonnement.
 
 Projet realise dans le cadre d'un seminaire ESGI. Equipe Logiciel : Nathan,
 Julien.
+
+## Telecharger
+
+**[Derniere version pour Windows](https://github.com/evomerse/FileStudent/releases/latest)**
+
+L'executable est regenere automatiquement a chaque mise a jour du code
+(voir `.github/workflows/build-windows.yml`) : le lien ci-dessus pointe
+toujours vers la version la plus recente, environ 190 Mo. Windows peut
+afficher un avertissement SmartScreen ("Editeur inconnu") au premier
+lancement : c'est normal pour un executable non signe, cliquez sur
+"Informations complementaires" puis "Executer quand meme".
+
+Linux/macOS : voir [Construire l'executable](#construire-lexecutable)
+plus bas.
 
 ## Modules
 
