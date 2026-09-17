@@ -109,10 +109,44 @@ pytest
 
 ## Construire l'executable
 
-Depuis `filestudent-app/`, voir `build.bat` (Windows) ou `build.sh`
-(Linux/macOS). Le resultat est volumineux (environ 190 Mo) : la
-conversion PDF -> Word embarque des bibliotheques de traitement d'image
-(OpenCV, NumPy).
+Deux scripts a la racine de `filestudent-app/`, un par systeme. Chacun
+fait la meme chose : creer un environnement Python isole rien que pour
+la construction, y installer les dependances, puis lancer PyInstaller
+avec la configuration du projet (`filestudent.spec`).
+
+**Windows**, depuis `filestudent-app/` :
+
+```bat
+build.bat
+```
+
+Double-clic possible aussi depuis l'explorateur. Resultat :
+`dist\FileStudent.exe`.
+
+**Linux/macOS**, depuis `filestudent-app/` :
+
+```bash
+chmod +x build.sh   # une seule fois, si le script n'est pas deja executable
+./build.sh
+```
+
+Resultat : `dist/FileStudent`.
+
+Dans les deux cas :
+
+- Le tout premier build cree un dossier `.venv-build/` (environnement
+  Python dedie a la construction, distinct de celui de developpement) :
+  il telecharge les dependances, donc prevoir une connexion internet et
+  quelques minutes la premiere fois. Les builds suivants reutilisent ce
+  dossier et sont plus rapides.
+- Le resultat est volumineux (environ 190 Mo) : la conversion PDF ->
+  Word embarque des bibliotheques de traitement d'image (OpenCV,
+  NumPy).
+- PyInstaller ne fait pas de compilation croisee : `build.bat` produit
+  un `.exe` Windows uniquement lance depuis Windows, `build.sh` un
+  binaire Linux/macOS uniquement lance depuis Linux/macOS.
+- Pour recompiler proprement depuis zero, supprimer `.venv-build/`,
+  `build/` et `dist/` avant de relancer le script.
 
 ## Menu contextuel dans l'explorateur Windows (ticket APP-23)
 
