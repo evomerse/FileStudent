@@ -90,16 +90,6 @@ pip install -e ".[dev]"
 python -m filestudent
 ```
 
-## Auto-diagnostic
-
-Verifie que les 17 traitements fonctionnent reellement sur la machine en
-cours (utile pour confirmer qu'un executable construit avec PyInstaller
-tourne correctement), sans ouvrir l'interface :
-
-```bash
-python -m filestudent --selftest
-```
-
 ## Lancer les tests et le lint
 
 ```bash
@@ -148,7 +138,7 @@ Dans les deux cas :
 - Pour recompiler proprement depuis zero, supprimer `.venv-build/`,
   `build/` et `dist/` avant de relancer le script.
 
-## Menu contextuel dans l'explorateur Windows (ticket APP-23)
+## Menu contextuel dans l'explorateur Windows 
 
 Une fois `FileStudent.exe` construit, ouvrez-le et allez dans l'onglet
 **Menu contextuel Windows** (le dernier), puis cliquez sur "Installer le
